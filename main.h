@@ -10,5 +10,8 @@ int _strlenc(const char *str);
 int print_percent(void);
 int print_int(va_list args);
 int print_dec(va_list args);
+int print_bin(va_list val);
+int print_unsigned(va_list args);
+int print_oct(va_list val);
 
 #endif
