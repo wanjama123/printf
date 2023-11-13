@@ -50,7 +50,7 @@ int print_int(va_list args)
 /**
  * print_dec - It prints the decimal.
  * @args: This is the argument to print.
- * Return: this is the number of characters printed.
+ * Return: integer
  */
 
 int print_dec(va_list args)

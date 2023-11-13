@@ -9,7 +9,7 @@ int _printf(const char * const format, ...)
 	convert p[] = {
 		{"%s", printf_string}, {"%c", printf_char},
 		{"%%", print_percent},
-		{"%i", print_dec}, {"%d", print_int}, {"%r", print_revs},
+		{"%i", print_int}, {"%d", print_dec}, {"%r", print_revs},
 		{"%R", print_rot13}, {"%b", print_bin},
 		{"%u", print_unsigned},
 		{"%o", print_oct}, {"%x", print_hex}, {"%X", print_HEX},
