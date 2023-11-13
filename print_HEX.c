@@ -7,41 +7,30 @@
  */
 int print_HEX(va_list val)
 {
-	int i;
+	int j;
 	int *array;
 	int counter = 0;
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
 
-	if (num == 0)
-	{
-	_putchar('0');
-	return (1);
-	}
-
-
-
-	while (num != 0)
+	while (num / 16 != 0)
 	{
 		num /= 16;
 		counter++;
 	}
+	counter++;
 	array = malloc(counter * sizeof(int));
-	if (array == NULL)
-	{
-	return (-1);
-	}
 
-	for (i = 0; i < counter; i++)
+	for (j = 0; j < counter; j++)
 	{
-		array[i] = tem % 16;
+		array[j] = tem % 16;
 		tem /= 16;
 	}
-	for (i = counter - 1; i >= 0; i--)
+	for (j = counter - 1; j >= 0; j--)
 	{
-		if (array[i] > 9)
-			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		if (array[j] > 9)
+			array[j] = array[j] + 7;
+		_putchar(array[j] + '0');
 	}
 	free(array);
 	return (counter);

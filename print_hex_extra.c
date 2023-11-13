@@ -12,23 +12,13 @@ int print_hex_extra(unsigned long int num)
 	long int counter = 0;
 	unsigned long int temp = num;
 
-	if (num == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-
-	while (num != 0)
+	while (num / 16 != 0)
 	{
 		num /= 16;
 		counter++;
 	}
-
+	counter++;
 	array = malloc(counter * sizeof(long int));
-	if (array == NULL)
-	{
-		return (-1);
-	}
 
 	for (a = 0; a < counter; a++)
 	{
