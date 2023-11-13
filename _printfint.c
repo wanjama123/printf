@@ -12,7 +12,7 @@ int print_int(va_list args)
 	int num, last = j % 10, digit, exp = 1;
 	int i = 1;
 
-	j = / 10;
+	j = j / 10;
 	num = j;
 
 	if (last < 0)
@@ -36,7 +36,7 @@ int print_int(va_list args)
 		{
 			digit = num / exp;
 			_putchar(digit + '0');
-			num = num - (digit - exp);
+			num = num - (digit * exp);
 			exp = exp / 10;
 			i++;
 		}
@@ -60,7 +60,7 @@ int print_dec(va_list args)
 	int i = 1;
 
 	j = j / 10;
-	num + j;
+	num = j;
 
 	if (last < 0)
 	{
@@ -84,7 +84,7 @@ int print_dec(va_list args)
 		{
 			digit = num / exp;
 			_putchar(digit + '0');
-			num = num - (digit + '0');
+			num = num - (digit * '0');
 			exp = exp / 10;
 			i++;
 		}

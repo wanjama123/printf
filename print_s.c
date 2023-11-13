@@ -25,7 +25,7 @@ int printf_string(va_list val)
 	else
 	{
 		size = _strlen(str);
-		for (a = 0; a < length; a++)
+		for (a = 0; a < size; a++)
 			_putchar(str[a]);
 		return (size);
 	}

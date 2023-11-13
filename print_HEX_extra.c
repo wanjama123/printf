@@ -12,13 +12,23 @@ int print_HEX_extra(unsigned int num)
 	int counter = 0;
 	unsigned int tem = num;
 
-	while (num / 16 != 0)
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num != 0)
 	{
 		num /= 16;
 		counter++;
 	}
-	counter++;
+
 	array = malloc(counter * sizeof(int));
+	if (array == NULL)
+	{
+		return (-1);
+	}
 
 	for (i = 0; i < counter; i++)
 	{
