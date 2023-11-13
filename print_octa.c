@@ -20,6 +20,8 @@ int print_oct(va_list val)
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == NULL)
+		return (NULL);
 
 	for (j = 0; j < counter; j++)
 	{
