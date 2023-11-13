@@ -3,7 +3,7 @@
 /**
  * print_int - It prints the intager values of the function.
  * @args:It is the argument to print.
- * Return: Number of characters printed.
+ * Return: Integer
  */
 
 int print_int(va_list args)
@@ -84,7 +84,7 @@ int print_dec(va_list args)
 		{
 			digit = num / exp;
 			_putchar(digit + '0');
-			num = num - (digit * '0');
+			num = num - (digit * exp);
 			exp = exp / 10;
 			i++;
 		}
