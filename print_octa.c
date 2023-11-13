@@ -15,16 +15,18 @@ int print_oct(va_list val)
 
 	while (num / 8 != 0)
 	{
-		num /= 8;
+		num = num /= 8;
 		counter++;
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
+	if (array == NULL)
+		return (NULL);
 
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 8;
-		tem /= 8;
+		tem = tem /= 8;
 	}
 	for (i = counter - 1; i >= 0; i--)
 	{
