@@ -7,7 +7,7 @@
  */
 int print_oct(va_list val)
 {
-	int i;
+	int j;
 	int *array;
 	int counter = 0;
 	unsigned int num = va_arg(val, unsigned int);
@@ -15,22 +15,20 @@ int print_oct(va_list val)
 
 	while (num / 8 != 0)
 	{
-		num = num /= 8;
+		num /= 8;
 		counter++;
 	}
 	counter++;
 	array = malloc(counter * sizeof(int));
-	if (array == NULL)
-		return (NULL);
 
-	for (i = 0; i < counter; i++)
+	for (j = 0; j < counter; j++)
 	{
-		array[i] = tem % 8;
-		tem = tem /= 8;
+		array[j] = tem % 8;
+		tem /= 8;
 	}
-	for (i = counter - 1; i >= 0; i--)
+	for (j = counter - 1; j >= 0; j--)
 	{
-		_putchar(array[i] + '0');
+		_putchar(array[j] + '0');
 	}
 	free(array);
 	return (counter);
