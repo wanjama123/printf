@@ -1,95 +1,75 @@
 #include "main.h"
 
 /**
- * print_int - It prints the intager values of the function.
- * @args:It is the argument to print.
- * Return: Integer
+ * print_int - Prints integer values.
+ * @num: The integer to print.
+ *
+ * Return: The number of characters printed.
  */
-
-int print_int(va_list args)
-{
-	int j = va_arg(args, int);
-	int num, last = j % 10, digit, exp = 1;
-	int i = 1;
-
-	j = j / 10;
-	num = j;
-
-	if (last < 0)
-	{
-		_putchar ('_');
-		num = -num;
-		j = -j;
-		last = -last;
-		i++;
-	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = j;
-
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-
-	_putchar(last + '0');
-	return (i);
-}
-#include "main.h"
+int print_int(int num);
 
 /**
- * print_dec - It prints the decimal.
- * @args: This is the argument to print.
- * Return: integer
+ * print_dec - Alias for print_int. Prints decimal values.
+ * @num: The decimal number to print.
+ *
+ * Return: The number of characters printed.
  */
+int print_dec(int num);
 
-int print_dec(va_list args)
+/**
+ * my_printf - Custom printf function supporting 'd' and 'i' specifiers.
+ * @format: The format string.
+ *            Specifiers supported: 'd', 'i'
+ * @...: Additional arguments corresponding to format specifiers.
+ *
+ * Return: The number of characters printed.
+ */
+int my_printf(const char *format, ...)
 {
-	int j = va_arg(args, int);
-	int num, last = j % 10, digit, exp = 1;
-	int i = 1;
+	va_list args;
 
-	j = j / 10;
-	num = j;
+	va_start(args, format);
+	int count = 0;
 
-	if (last < 0)
+	while (*format != '\0')
 	{
-		_putchar('_');
-		num = -num;
-		j = -j;
-		last = -last;
-		i++;
+		if (*format == 'd' || *format == 'i')
+		{
+			int num = va_arg(args, int);
+
+			count += print_int(num);
+		}
+		else
+		{
+			putchar(*format);
+			count++;
+		}
+		format++;
 	}
 
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = j;
-
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-	_putchar(last + '0');
-
-	return (i);
+	va_end(args);
+	return (count);
 }
+
+/**
+ * print_int - Internal function to print integer values.
+ * @num: The integer to print.
+ *
+ * Return: The number of characters printed.
+ */
+int print_int(int num)
+{
+	return (printf("%d", num));
+}
+
+/**
+ * print_dec - Internal function (alias for print_int) to print decimal values.
+ * @num: The decimal number to print.
+ *
+ * Return: The number of characters printed.
+ */
+int print_dec(int num)
+{
+	return (printf("%d", num));
+}
+
